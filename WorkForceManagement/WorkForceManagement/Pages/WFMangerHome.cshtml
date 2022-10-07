@@ -1,0 +1,347 @@
+﻿@page
+@model WorkForceManagement.Pages.WFMangerHomeModel
+@{
+}
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="FrontendScript" />
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="~/css/page.css" />
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="~/css/stylesheet.css"></script>
+<style>
+    /* Style the body */
+    body {
+        font-family: Arial;
+        margin: 0;
+        background-color: beige;
+    }
+
+    /* Header/Logo Title */
+    .header {
+        padding: 1px;
+        text-align: right;
+        background: cadetblue;
+        color: white;
+        font-size: 14pt;
+        height: 56px;
+    }
+
+    .titleclass {
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+        color: white;
+        font-size: 15pt;
+        padding: 15px 212px;
+        font-weight: normal;
+        float: left;
+    }
+
+    .mgrtitleclass {
+        font-family: sans-serif;
+        font-size: 15pt;
+        font-weight: bold;
+    }
+
+    .container {
+        width: 73%;
+        margin-top: 77px;
+    }
+
+    .paraclass {
+        font-family: sans-serif;
+        font-size: 11pt;
+    }
+
+    .tabclass {
+        text-transform: uppercase;
+        background-color: cadetblue;
+        color: white;
+        font-size: 13pt;
+    }
+    /* Page Content */
+    .content {
+        padding: 5px;
+    }
+
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+    .button-3 {
+        appearance: none;
+        background-color: steelblue;
+        border: 1px solid rgba(27, 31, 35, .15);
+        border-radius: 6px;
+        box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 20px;
+        padding: 6px 16px;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        vertical-align: middle;
+        white-space: nowrap;
+        width: 150px;
+    }
+
+        .button-3:focus:not(:focus-visible):not(.focus-visible) {
+            box-shadow: none;
+            outline: none;
+        }
+
+        .button-3:hover {
+            background-color: steelblue;
+        }
+
+        .button-3:focus {
+            box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+            outline: none;
+        }
+
+        .button-3:disabled {
+            background-color: #94d3a2;
+            border-color: rgba(27, 31, 35, .1);
+            color: rgba(255, 255, 255, .8);
+            cursor: default;
+        }
+
+        .button-3:active {
+            background-color: steelblue;
+            box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+        }
+
+    .maxrows {
+        margin-top: 20px;
+        color: steelblue;
+        height: 28px;
+        border-color: gainsboro;
+        float: right;
+        margin-left: 5px;
+        margin-right: 10px;
+    }
+
+    .paging {
+        float: right;
+        margin-top: 33px;
+        font-family: sans-serif;
+        color: steelblue
+    }
+
+    .reqcon {
+        padding: 15px 20px;
+        border-radius: 10px;
+        font-family: calibri;
+        background-color: darkgoldenrod;
+        color: white;
+        width: 100%;
+        height: 50px
+    }
+
+    .reqlock {
+        padding: 10px;
+        font-family: calibri;
+        width: 100%;
+        height: 50px;
+        color: darkolivegreen;
+        font-weight: bold;
+        font-size: 15pt;
+        text-decoration: underline;
+    }
+
+    .theadclass {
+        font-family: sans-serif;
+        font-size: 13pt;
+        color: #003399;
+    }
+
+    .tdclass {
+        height: 50px;
+        font-family: Times New Roman;
+        color: black;
+        white-space: pre-wrap;
+        font-size: 15pt;
+        font-weight: normal;
+    }
+
+    .tddes {
+        height: 50px;
+        font-family: Times New Roman;
+        color: black;
+        white-space: pre-wrap;
+        font-size: 15pt;
+        font-style: italic;
+        font-weight: normal
+    }
+
+    .tdstatus {
+        color: steelblue;
+        border-color: gainsboro;
+        width: 100px;
+        height: 40px;
+        font-size: 13pt;
+        padding: 8px;
+        margin-left: 30px;
+        font-family: calibri;
+    }
+</style>
+
+<div class="header">
+    <h1 class="titleclass">WorkForce Management</h1>
+
+</div>
+<br />
+<div class="container">
+    <h2 class="mgrtitleclass">WFM Home</h2>
+    <br />
+    <p class="paraclass">
+        A workforce manager is a professional whose main responsibilities are to oversee the productivity and quality of work within a company. They conduct analysis and reports on employees to determine how their individual skills can best contribute to the organization
+    </p>
+    <br />
+    <table id="table-id" class="table table-grey" style=" font-family:Calibri; border-style:outset;border-color:  lightgrey;" align="center" border="1" cellpadding="10" align="center">
+        <thead class="tabclass" align="center">
+            <tr>
+                <th>Employee Id</th>
+                <th>Requestee</th>
+                <th>Request Date</th>
+                <th>Employees Manager</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="data" style="font-weight:normal" align="center">
+        </tbody>
+    </table>
+
+
+    <!--		Start Pagination -->
+    <div class='pagination-container' style="float:right;">
+        <nav>
+            <ul class="pagination">
+
+                <li data-page="prev">
+                    <span> < <span class="sr-only">(current)</span></span>
+                </li>
+                <!--	Here the JS Function Will Add the Rows -->
+                <li data-page="next" id="prev">
+                    <span> > <span class="sr-only">(current)</span></span>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <select name="state" id="maxRows" class="maxrows">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+    </select>
+
+    <span class="paging">Items per page</span>
+
+</div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span align="right" class="close" onclick="closeClick()">&times;</span>
+        <h2 class="reqcon">Soft lock Request Confirmation</h2>
+        <br />
+        <h3 class="reqlock">Status Update for Request Lock</h3>
+
+        <div style="padding:10px;">
+            <label class="theadclass">Employee Id :</label>
+            <label id="employeeId" class="tdclass"></label>
+        </div>
+        <div style="padding:10px;">
+            <label class="theadclass">Requesee :</label>
+            <label id="requestee" class="tdclass"></label>
+        </div>
+        <div style="padding:10px;">
+            <label class="theadclass">Employee Manager :</label>
+            <label id="manager" class="tdclass"></label>
+        </div>
+        <div style="padding:10px;">
+            <label class="theadclass">Request Description :</label>
+            <label id="reqmsg" class="tddes"></label>
+        </div>
+        <div style="padding:10px;">
+            <label class="theadclass">Status :</label>
+            <select id="ddlstatus" class="tdstatus">
+                <option value="approve">approve</option>
+                <option value="reject">reject</option>
+            </select>
+        </div>
+        <br />
+        <table>
+            <tr>
+                <td style="width:200px;"><button id="cancel" class="button-3" onclick="closeClick()">Cancel</button></td>
+                <td><button id="send" type="submit" class="button-3" onclick="approveClick()">Send Request</button></td>
+            </tr>
+        </table>
+
+        <label id="id" hidden="hidden"></label>
+        <label id="reqdate" hidden="hidden"></label>
+        <label id="mgrdate" hidden="hidden"></label>
+    </div>
+</div>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="~/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="~/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/js/jquery.min.js"></script>
+<script type="text/javascript" src="~/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="~/js/jszip.min.js"></script>
+<script type="text/javascript" src="~/js/paging.js"></script>
+<script src="~/js/WFMScript.js"></script>
